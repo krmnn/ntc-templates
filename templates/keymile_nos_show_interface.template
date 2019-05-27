@@ -4,13 +4,17 @@ Value INDEX (\d+)
 Value METRIC (\d+)
 Value MTU (\d+)
 Value VRF (.+)
+Value IP (.+)
+Value BROADCAST (.+)
 
 Start
   ^Interface\s${NAME} -> Coninue.Record
-  ^\s+Hardware\sis\s${HARDWARE} -> Continue
-  ^\s+index\s${INDEX}\smetric\s${METRIC}\smtu\s${MTU}.+
-  ^\s+VRF\sBinding:\s${VRF}
-  ^\s+input\spackets.+
-  ^\s+input\serrors.+
-  ^\s+output\spackets.+
-  ^\s+output\serrors.+
+  ^\s\sHardware\sis\s${HARDWARE} -> Continue
+  ^\s\sindex\s${INDEX}\smetric\s${METRIC}\smtu\s${MTU}.+
+  ^\s\sVRF\sBinding:\s${VRF}
+  ^\s\s\s\sinet\s${IP}\sbroadcast\s${BROADCAST}
+  ^\s\s\s\sinput\spackets.+
+  ^\s\s\s\sinput\serrors.+
+  ^\s\s\s\soutput\spackets.+
+  ^\s\s\s\soutput\serrors.+
+  ^\s\s\s\scollisions\s.+
