@@ -4,7 +4,6 @@ Value METRIC (\d+)
 Value MTU (\d+)
 
 Start
-  ^NOS\sversion\s${VERSION}\s#${BUILD} -> Record
   ^Interface\s${NAME} -> Record
   ^\s+Hardware\sis\s${HARDWARE}
   ^\s+index\s${INDEX}\smetric\s${METRIC}\s${MTU}.+
