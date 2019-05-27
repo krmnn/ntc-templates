@@ -1,0 +1,5 @@
+Value VERSION (.+)
+Value BUILD (\S+)
+
+Start
+  ^NOS\sversion\s${VERSION}\s#${BUILD} -> Record
