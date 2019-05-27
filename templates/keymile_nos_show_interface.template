@@ -3,8 +3,14 @@ Value HARDWARE (\S+)
 Value INDEX (\d+)
 Value METRIC (\d+)
 Value MTU (\d+)
+Value VRF (.+)
 
 Start
-  ^Interface\s${NAME} -> Record
-  ^\s+Hardware\sis\s${HARDWARE} -> Record
-  ^\s+index\s${INDEX}\smetric\s${METRIC}\smtu\s${MTU}.+ -> Record
+  ^Interface\s${NAME} -> Coninue.Record
+  ^\s+Hardware\sis\s${HARDWARE} -> Continue
+  ^\s+index\s${INDEX}\smetric\s${METRIC}\smtu\s${MTU}.+
+  ^\s+VRF\sBinding:\s${VRF}
+  ^\s+input\spackets.+
+  ^\s+input\serrors.+
+  ^\s+output\spackets.+
+  ^\s+output\serrors.+
