@@ -1,0 +1,18 @@
+Value NAME (\S+)
+Value HARDWARE (\S+)
+Value METRIC (\d+)
+Value MTU (\d+)
+
+Start
+  ^NOS\sversion\s${VERSION}\s#${BUILD} -> Record
+  ^Interface\s${NAME} -> Record
+  ^\s+Hardware\sis\s${HARDWARE}
+  ^\s+index\s${INDEX}\smetric\s${METRIC}\s${MTU}.+
+
+#  index 1 metric 1 mtu 16436  <UP,LOOPBACK,RUNNING>",
+#  VRF Binding: Not bound",
+#    input packets 149715, bytes 12348807, dropped 0, multicast packets 0",
+#    input errors 0, length 0, overrun 0, CRC 0, frame 0, fifo 0, missed 0",
+#    output packets 149715, bytes 12348807, dropped 0",
+#    output errors 0, aborted 0, carrier 0, fifo 0, heartbeat 0, window 0",
+#"    collisions 0",
